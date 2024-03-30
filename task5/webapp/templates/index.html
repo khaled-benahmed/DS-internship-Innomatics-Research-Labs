@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regex Matcher</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5">Regex Test String Matcher</h1>
+        <form method="post" class="mt-3">
+            <div class="form-group">
+                <label for="test_string">Test String:</label>
+                <input type="text" class="form-control" name="test_string" required>
+            </div>
+            <div class="form-group">
+                <label for="regex">Regex:</label>
+                <input type="text" class="form-control" name="regex" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Test</button>
+        </form>
+        {% if matches %}
+            <h2 class="mt-4">Matches Found:</h2>
+            <ul class="list-group mt-3">
+                {% for match in matches %}
+                    <li class="list-group-item">{{ match }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="container">
+        <h1 class="mt-5">Email Validator</h1>
+        <form method="post" class="mt-3">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Validate</button>
+        </form>
+        {% if email_validated %}
+            <div class="mt-3">
+                {% if is_valid %}
+                    <p class="alert alert-success">The email is valid!</p>
+                {% else %}
+                    <p class="alert alert-danger">The email is invalid!</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
